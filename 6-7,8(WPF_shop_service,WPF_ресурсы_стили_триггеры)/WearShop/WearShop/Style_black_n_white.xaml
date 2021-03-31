@@ -1,0 +1,30 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:WearShop" >
+    <Style x:Key="rectangle_n_popup_1" TargetType="Label">
+        <Style.Setters>
+            <Setter Property="Label.Background" Value="Black" />
+        </Style.Setters>
+        <Style.Triggers>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="Control.IsMouseOver" Value="True" />
+                    <Condition Property="Control.IsFocused" Value="False" />
+                </MultiTrigger.Conditions>
+                <MultiTrigger.Setters>
+                    <Setter Property="Label.Background" Value="DimGray" />
+                </MultiTrigger.Setters>
+            </MultiTrigger>
+        </Style.Triggers>
+    </Style>
+    <SolidColorBrush x:Key="rectangle_n_popup_2" Color="White"/>
+    <SolidColorBrush x:Key="LBack" Color="Black"/>
+    <SolidColorBrush x:Key="Font_on_black" Color="Black"/>
+    <FontFamily x:Key="main_title" >
+        Nirmala UI Semilight
+    </FontFamily>
+    <FontFamily x:Key="Main_Title" >
+        Arial
+    </FontFamily>
+   
+</ResourceDictionary>

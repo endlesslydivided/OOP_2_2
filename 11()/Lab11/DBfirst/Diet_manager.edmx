@@ -1,0 +1,351 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище Diet_managerModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="PRODUCTS">
+          <Key>
+            <PropertyRef Name="product_name" />
+          </Key>
+          <Property Name="id_added" Type="int" Nullable="false" />
+          <Property Name="product_name" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="calories_gram" Type="decimal" Precision="7" Scale="2" Nullable="false" />
+          <Property Name="proteins_gram" Type="decimal" Precision="7" Scale="2" Nullable="false" />
+          <Property Name="fats_gram" Type="decimal" Precision="7" Scale="2" Nullable="false" />
+          <Property Name="carbohydrates_gram" Type="decimal" Precision="7" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="REPORTS">
+          <Key>
+            <PropertyRef Name="id_report" />
+            <PropertyRef Name="report_date" />
+          </Key>
+          <Property Name="id_report" Type="int" Nullable="false" />
+          <Property Name="report_date" Type="datetime" Nullable="false" />
+          <Property Name="eat_period" Type="char" MaxLength="8" Nullable="false" />
+          <Property Name="day_calories" Type="decimal" Precision="7" Scale="2" Nullable="false" />
+          <Property Name="day_proteins" Type="decimal" Precision="7" Scale="2" Nullable="false" />
+          <Property Name="day_fats" Type="decimal" Precision="7" Scale="2" Nullable="false" />
+          <Property Name="day_carbohydrates" Type="decimal" Precision="7" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="USERS">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="is_admin" Type="bit" Nullable="false" />
+          <Property Name="user_login" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="user_password" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="USERS_DATA">
+          <Key>
+            <PropertyRef Name="id_data" />
+          </Key>
+          <Property Name="id_data" Type="int" Nullable="false" />
+          <Property Name="full_name" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="birthday" Type="date" Nullable="false" />
+          <Property Name="age" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="USERS_PARAMS">
+          <Key>
+            <PropertyRef Name="id_params" />
+            <PropertyRef Name="params_date" />
+          </Key>
+          <Property Name="id_params" Type="int" Nullable="false" />
+          <Property Name="params_date" Type="datetime" Nullable="false" />
+          <Property Name="user_weight" Type="decimal" Precision="4" Scale="1" Nullable="false" />
+          <Property Name="user_height" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_PRODUCTS_USERS">
+          <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+          <End Role="PRODUCTS" Type="Self.PRODUCTS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USERS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="PRODUCTS">
+              <PropertyRef Name="id_added" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REPORTS_USERS">
+          <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+          <End Role="REPORTS" Type="Self.REPORTS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USERS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="REPORTS">
+              <PropertyRef Name="id_report" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USERS_DATA_USERS">
+          <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+          <End Role="USERS_DATA" Type="Self.USERS_DATA" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="USERS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="USERS_DATA">
+              <PropertyRef Name="id_data" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USERS_PARAMS_USERS">
+          <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+          <End Role="USERS_PARAMS" Type="Self.USERS_PARAMS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USERS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="USERS_PARAMS">
+              <PropertyRef Name="id_params" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище Diet_managerModelContainer">
+          <EntitySet Name="PRODUCTS" EntityType="Self.PRODUCTS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="REPORTS" EntityType="Self.REPORTS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USERS" EntityType="Self.USERS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USERS_DATA" EntityType="Self.USERS_DATA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USERS_PARAMS" EntityType="Self.USERS_PARAMS" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_PRODUCTS_USERS" Association="Self.FK_PRODUCTS_USERS">
+            <End Role="USERS" EntitySet="USERS" />
+            <End Role="PRODUCTS" EntitySet="PRODUCTS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REPORTS_USERS" Association="Self.FK_REPORTS_USERS">
+            <End Role="USERS" EntitySet="USERS" />
+            <End Role="REPORTS" EntitySet="REPORTS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USERS_DATA_USERS" Association="Self.FK_USERS_DATA_USERS">
+            <End Role="USERS" EntitySet="USERS" />
+            <End Role="USERS_DATA" EntitySet="USERS_DATA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USERS_PARAMS_USERS" Association="Self.FK_USERS_PARAMS_USERS">
+            <End Role="USERS" EntitySet="USERS" />
+            <End Role="USERS_PARAMS" EntitySet="USERS_PARAMS" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Diet_managerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="PRODUCTS">
+          <Key>
+            <PropertyRef Name="product_name" />
+          </Key>
+          <Property Name="id_added" Type="Int32" Nullable="false" />
+          <Property Name="product_name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="calories_gram" Type="Decimal" Precision="7" Scale="2" Nullable="false" />
+          <Property Name="proteins_gram" Type="Decimal" Precision="7" Scale="2" Nullable="false" />
+          <Property Name="fats_gram" Type="Decimal" Precision="7" Scale="2" Nullable="false" />
+          <Property Name="carbohydrates_gram" Type="Decimal" Precision="7" Scale="2" Nullable="false" />
+          <NavigationProperty Name="USERS" Relationship="Self.FK_PRODUCTS_USERS" FromRole="PRODUCTS" ToRole="USERS" />
+        </EntityType>
+        <EntityType Name="REPORTS">
+          <Key>
+            <PropertyRef Name="id_report" />
+            <PropertyRef Name="report_date" />
+          </Key>
+          <Property Name="id_report" Type="Int32" Nullable="false" />
+          <Property Name="report_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="eat_period" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="day_calories" Type="Decimal" Precision="7" Scale="2" Nullable="false" />
+          <Property Name="day_proteins" Type="Decimal" Precision="7" Scale="2" Nullable="false" />
+          <Property Name="day_fats" Type="Decimal" Precision="7" Scale="2" Nullable="false" />
+          <Property Name="day_carbohydrates" Type="Decimal" Precision="7" Scale="2" Nullable="false" />
+          <NavigationProperty Name="USERS" Relationship="Self.FK_REPORTS_USERS" FromRole="REPORTS" ToRole="USERS" />
+        </EntityType>
+        <EntityType Name="USERS">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="is_admin" Type="Boolean" Nullable="false" />
+          <Property Name="user_login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="user_password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="PRODUCTS" Relationship="Self.FK_PRODUCTS_USERS" FromRole="USERS" ToRole="PRODUCTS" />
+          <NavigationProperty Name="REPORTS" Relationship="Self.FK_REPORTS_USERS" FromRole="USERS" ToRole="REPORTS" />
+          <NavigationProperty Name="USERS_DATA" Relationship="Self.FK_USERS_DATA_USERS" FromRole="USERS" ToRole="USERS_DATA" />
+          <NavigationProperty Name="USERS_PARAMS" Relationship="Self.FK_USERS_PARAMS_USERS" FromRole="USERS" ToRole="USERS_PARAMS" />
+        </EntityType>
+        <EntityType Name="USERS_DATA">
+          <Key>
+            <PropertyRef Name="id_data" />
+          </Key>
+          <Property Name="id_data" Type="Int32" Nullable="false" />
+          <Property Name="full_name" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="birthday" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="age" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="USERS" Relationship="Self.FK_USERS_DATA_USERS" FromRole="USERS_DATA" ToRole="USERS" />
+        </EntityType>
+        <EntityType Name="USERS_PARAMS">
+          <Key>
+            <PropertyRef Name="id_params" />
+            <PropertyRef Name="params_date" />
+          </Key>
+          <Property Name="id_params" Type="Int32" Nullable="false" />
+          <Property Name="params_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="user_weight" Type="Decimal" Precision="4" Scale="1" Nullable="false" />
+          <Property Name="user_height" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="USERS" Relationship="Self.FK_USERS_PARAMS_USERS" FromRole="USERS_PARAMS" ToRole="USERS" />
+        </EntityType>
+        <Association Name="FK_PRODUCTS_USERS">
+          <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+          <End Role="PRODUCTS" Type="Self.PRODUCTS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USERS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="PRODUCTS">
+              <PropertyRef Name="id_added" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REPORTS_USERS">
+          <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+          <End Role="REPORTS" Type="Self.REPORTS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USERS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="REPORTS">
+              <PropertyRef Name="id_report" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USERS_DATA_USERS">
+          <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+          <End Role="USERS_DATA" Type="Self.USERS_DATA" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="USERS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="USERS_DATA">
+              <PropertyRef Name="id_data" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USERS_PARAMS_USERS">
+          <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+          <End Role="USERS_PARAMS" Type="Self.USERS_PARAMS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USERS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="USERS_PARAMS">
+              <PropertyRef Name="id_params" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Diet_managerEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="PRODUCTS" EntityType="Self.PRODUCTS" />
+          <EntitySet Name="REPORTS" EntityType="Self.REPORTS" />
+          <EntitySet Name="USERS" EntityType="Self.USERS" />
+          <EntitySet Name="USERS_DATA" EntityType="Self.USERS_DATA" />
+          <EntitySet Name="USERS_PARAMS" EntityType="Self.USERS_PARAMS" />
+          <AssociationSet Name="FK_PRODUCTS_USERS" Association="Self.FK_PRODUCTS_USERS">
+            <End Role="USERS" EntitySet="USERS" />
+            <End Role="PRODUCTS" EntitySet="PRODUCTS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REPORTS_USERS" Association="Self.FK_REPORTS_USERS">
+            <End Role="USERS" EntitySet="USERS" />
+            <End Role="REPORTS" EntitySet="REPORTS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USERS_DATA_USERS" Association="Self.FK_USERS_DATA_USERS">
+            <End Role="USERS" EntitySet="USERS" />
+            <End Role="USERS_DATA" EntitySet="USERS_DATA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USERS_PARAMS_USERS" Association="Self.FK_USERS_PARAMS_USERS">
+            <End Role="USERS" EntitySet="USERS" />
+            <End Role="USERS_PARAMS" EntitySet="USERS_PARAMS" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище Diet_managerModelContainer" CdmEntityContainer="Diet_managerEntities">
+          <EntitySetMapping Name="PRODUCTS">
+            <EntityTypeMapping TypeName="Diet_managerModel.PRODUCTS">
+              <MappingFragment StoreEntitySet="PRODUCTS">
+                <ScalarProperty Name="id_added" ColumnName="id_added" />
+                <ScalarProperty Name="product_name" ColumnName="product_name" />
+                <ScalarProperty Name="calories_gram" ColumnName="calories_gram" />
+                <ScalarProperty Name="proteins_gram" ColumnName="proteins_gram" />
+                <ScalarProperty Name="fats_gram" ColumnName="fats_gram" />
+                <ScalarProperty Name="carbohydrates_gram" ColumnName="carbohydrates_gram" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="REPORTS">
+            <EntityTypeMapping TypeName="Diet_managerModel.REPORTS">
+              <MappingFragment StoreEntitySet="REPORTS">
+                <ScalarProperty Name="id_report" ColumnName="id_report" />
+                <ScalarProperty Name="report_date" ColumnName="report_date" />
+                <ScalarProperty Name="eat_period" ColumnName="eat_period" />
+                <ScalarProperty Name="day_calories" ColumnName="day_calories" />
+                <ScalarProperty Name="day_proteins" ColumnName="day_proteins" />
+                <ScalarProperty Name="day_fats" ColumnName="day_fats" />
+                <ScalarProperty Name="day_carbohydrates" ColumnName="day_carbohydrates" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USERS">
+            <EntityTypeMapping TypeName="Diet_managerModel.USERS">
+              <MappingFragment StoreEntitySet="USERS">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="is_admin" ColumnName="is_admin" />
+                <ScalarProperty Name="user_login" ColumnName="user_login" />
+                <ScalarProperty Name="user_password" ColumnName="user_password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USERS_DATA">
+            <EntityTypeMapping TypeName="Diet_managerModel.USERS_DATA">
+              <MappingFragment StoreEntitySet="USERS_DATA">
+                <ScalarProperty Name="id_data" ColumnName="id_data" />
+                <ScalarProperty Name="full_name" ColumnName="full_name" />
+                <ScalarProperty Name="birthday" ColumnName="birthday" />
+                <ScalarProperty Name="age" ColumnName="age" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USERS_PARAMS">
+            <EntityTypeMapping TypeName="Diet_managerModel.USERS_PARAMS">
+              <MappingFragment StoreEntitySet="USERS_PARAMS">
+                <ScalarProperty Name="id_params" ColumnName="id_params" />
+                <ScalarProperty Name="params_date" ColumnName="params_date" />
+                <ScalarProperty Name="user_weight" ColumnName="user_weight" />
+                <ScalarProperty Name="user_height" ColumnName="user_height" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

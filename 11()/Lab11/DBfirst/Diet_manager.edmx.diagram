@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="59ee8fc949184932a62ae851c2e38447" Name="Diagram1">
+        <EntityTypeShape EntityType="Diet_managerModel.PRODUCTS" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Diet_managerModel.REPORTS" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Diet_managerModel.USERS" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Diet_managerModel.USERS_DATA" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Diet_managerModel.USERS_PARAMS" Width="1.5" PointX="3" PointY="10.5" IsExpanded="true" />
+        <AssociationConnector Association="Diet_managerModel.FK_PRODUCTS_USERS" ManuallyRouted="false" />
+        <AssociationConnector Association="Diet_managerModel.FK_REPORTS_USERS" ManuallyRouted="false" />
+        <AssociationConnector Association="Diet_managerModel.FK_USERS_DATA_USERS" ManuallyRouted="false" />
+        <AssociationConnector Association="Diet_managerModel.FK_USERS_PARAMS_USERS" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30309.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab11_", "Lab11_\Lab11_.csproj", "{6FE70678-FA39-46C1-8095-BF518EDA3A68}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelFirst", "..\ModelFirst\ModelFirst.csproj", "{3C98C000-B5A5-40AD-9793-962B88F4463C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBfirst", "..\Lab11\DBfirst\DBfirst.csproj", "{45ED8624-6A3E-4A38-9805-58F1EABA068D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6FE70678-FA39-46C1-8095-BF518EDA3A68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FE70678-FA39-46C1-8095-BF518EDA3A68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FE70678-FA39-46C1-8095-BF518EDA3A68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FE70678-FA39-46C1-8095-BF518EDA3A68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C98C000-B5A5-40AD-9793-962B88F4463C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C98C000-B5A5-40AD-9793-962B88F4463C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C98C000-B5A5-40AD-9793-962B88F4463C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C98C000-B5A5-40AD-9793-962B88F4463C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45ED8624-6A3E-4A38-9805-58F1EABA068D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45ED8624-6A3E-4A38-9805-58F1EABA068D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45ED8624-6A3E-4A38-9805-58F1EABA068D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45ED8624-6A3E-4A38-9805-58F1EABA068D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1B312463-E2AC-446D-976A-0921D58C0894}
+	EndGlobalSection
+EndGlobal

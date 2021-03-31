@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<ArrayOfClothes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Clothes>
+    <shortName>Мужской джемпер</shortName>
+    <fullName>Зимний мужской джемпер</fullName>
+    <description>Спасибо тебе мама за этот классный джемпер чёрного цвета 21 века...</description>
+    <imageAdress>D:\ALEX\STUDY\4SEM_2COURSE\ООТП\Лабораторные работы\6-7(WPF_shop_service)\DIVIDEDSHOP\DIVIDEDSHOP\Pictures\джемпер.jfif</imageAdress>
+    <category>Одежда</category>
+    <rate>10</rate>
+    <cost>35</cost>
+    <color>Чёрный</color>
+    <size>L</size>
+    <ShortName>Мужской джемпер</ShortName>
+    <FullName>Зимний мужской джемпер</FullName>
+    <Description>Спасибо тебе мама за этот классный джемпер чёрного цвета 21 века...</Description>
+    <ImageAdress>D:\ALEX\STUDY\4SEM_2COURSE\ООТП\Лабораторные работы\6-7(WPF_shop_service)\DIVIDEDSHOP\DIVIDEDSHOP\Pictures\джемпер.jfif</ImageAdress>
+    <Category>Одежда</Category>
+    <Rate>10</Rate>
+    <Cost>35</Cost>
+    <Color>Чёрный</Color>
+    <Size>L</Size>
+  </Clothes>
+  <Clothes>
+    <shortName>Краткое название</shortName>
+    <fullName>123456789012345678901234567890</fullName>
+    <description>Описание</description>
+    <imageAdress>D:/ALEX/STUDY/4SEM_2COURSE/ООТП/Лабораторные работы/6-7(WPF_shop_service)/WearShop/WearShop/Pictures/Без названия.jfif</imageAdress>
+    <category>Одежда</category>
+    <rate>0</rate>
+    <cost>12</cost>
+    <color>Красный</color>
+    <size>34</size>
+    <ShortName>Краткое название</ShortName>
+    <FullName>123456789012345678901234567890</FullName>
+    <Description>Описание</Description>
+    <ImageAdress>D:/ALEX/STUDY/4SEM_2COURSE/ООТП/Лабораторные работы/6-7(WPF_shop_service)/WearShop/WearShop/Pictures/Без названия.jfif</ImageAdress>
+    <Category>Одежда</Category>
+    <Rate>0</Rate>
+    <Cost>12</Cost>
+    <Color>Красный</Color>
+    <Size>34</Size>
+  </Clothes>
+  <Clothes>
+    <shortName>Nike Air Monarch</shortName>
+    <fullName>Nike Air Monarch 4</fullName>
+    <description>Кроссовки</description>
+    <imageAdress>D:\ALEX\STUDY\4SEM_2COURSE\ООТП\Лабораторные работы\6-7(WPF_shop_service)\WearShop\WearShop\Pictures\кроссовки.jfif</imageAdress>
+    <category>Обувь</category>
+    <rate>10</rate>
+    <cost>35</cost>
+    <color>Чёрный</color>
+    <size>39</size>
+    <ShortName>Nike Air Monarch</ShortName>
+    <FullName>Nike Air Monarch 4</FullName>
+    <Description>Кроссовки</Description>
+    <ImageAdress>D:\ALEX\STUDY\4SEM_2COURSE\ООТП\Лабораторные работы\6-7(WPF_shop_service)\WearShop\WearShop\Pictures\кроссовки.jfif</ImageAdress>
+    <Category>Обувь</Category>
+    <Rate>10</Rate>
+    <Cost>35</Cost>
+    <Color>Чёрный</Color>
+    <Size>39</Size>
+  </Clothes>
+  <Clothes>
+    <shortName>Женские туфли</shortName>
+    <fullName>Бежевые женские туфли</fullName>
+    <description>Туфли на высокой шпильке</description>
+    <imageAdress>D:\ALEX\STUDY\4SEM_2COURSE\ООТП\Лабораторные работы\6-7(WPF_shop_service)\WearShop\WearShop\Pictures\туфли.jpg</imageAdress>
+    <category>Обувь</category>
+    <rate>8</rate>
+    <cost>15</cost>
+    <color>Оранжевый</color>
+    <size>35</size>
+    <ShortName>Женские туфли</ShortName>
+    <FullName>Бежевые женские туфли</FullName>
+    <Description>Туфли на высокой шпильке</Description>
+    <ImageAdress>D:\ALEX\STUDY\4SEM_2COURSE\ООТП\Лабораторные работы\6-7(WPF_shop_service)\WearShop\WearShop\Pictures\туфли.jpg</ImageAdress>
+    <Category>Обувь</Category>
+    <Rate>8</Rate>
+    <Cost>15</Cost>
+    <Color>Оранжевый</Color>
+    <Size>35</Size>
+  </Clothes>
+  <Clothes>
+    <shortName>3 4534534</shortName>
+    <fullName>345345</fullName>
+    <description>ываываываы</description>
+    <imageAdress>D:\ALEX\STUDY\4SEM_2COURSE\ООТП\Лабораторные работы\6-7(WPF_shop_service)\WearShop\WearShop\Pictures\Без названия.jfif</imageAdress>
+    <category>Одежда</category>
+    <rate>8</rate>
+    <cost>345</cost>
+    <color>Коричневый</color>
+    <size>345</size>
+    <ShortName>3 4534534</ShortName>
+    <FullName>345345</FullName>
+    <Description>ываываываы</Description>
+    <ImageAdress>D:\ALEX\STUDY\4SEM_2COURSE\ООТП\Лабораторные работы\6-7(WPF_shop_service)\WearShop\WearShop\Pictures\Без названия.jfif</ImageAdress>
+    <Category>Одежда</Category>
+    <Rate>8</Rate>
+    <Cost>345</Cost>
+    <Color>Коричневый</Color>
+    <Size>345</Size>
+  </Clothes>
+</ArrayOfClothes>

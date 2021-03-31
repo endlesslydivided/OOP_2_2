@@ -1,0 +1,42 @@
+﻿ <ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:WearShop" xmlns:v="clr-namespace:System;assembly=mscorlib">
+    <v:String x:Key="CancelBTTN">Cancel</v:String>
+    <v:String x:Key="OkBTTN">Ok</v:String>
+    <v:String x:Key="ClothesTitle">Clothes</v:String>
+    <v:String x:Key="ShooesTitle">Shoes</v:String>
+    <v:String x:Key="ColorCB">Color</v:String>
+    
+    <v:String x:Key="ColorRed">Red</v:String>
+    <v:String x:Key="ColorGreen">Green</v:String>
+    <v:String x:Key="ColorYellow">Yellow</v:String>
+    <v:String x:Key="ColorOrange">Orange</v:String>
+    <v:String x:Key="ColorBrown">Brown</v:String>
+    <v:String x:Key="ColorBlack">Black</v:String>
+    <v:String x:Key="ColorPink">Pink</v:String>
+    <v:String x:Key="ColorCyan">Cyan</v:String>
+    <v:String x:Key="ColorBlue">Blue</v:String>
+
+    <v:String x:Key="FullNameSTR">Full name</v:String>
+    <v:String x:Key="ShortNameSTR">Short name</v:String>
+    <v:String x:Key="SizeSTR">Size</v:String>
+    <v:String x:Key="CostSTR">Cost</v:String>
+    <v:String x:Key="DescriptionSTR">Description</v:String>
+    <v:String x:Key="ClearFormSTR">Clear form</v:String>
+    <v:String x:Key="AddPictureSTR">Add picture</v:String>
+    <v:String x:Key="CategoryTB">Category</v:String>
+    <v:String x:Key="Rate">Rate</v:String>
+    <v:String x:Key="EditBTTN">Edit</v:String>
+    <v:String x:Key="DeleteBTTN">Delete</v:String>
+    <v:String x:Key="Stylish">Style</v:String>
+
+
+    <v:String x:Key="CostSTRMIN">MIN cost</v:String>
+    <v:String x:Key="CostSTRMAX">MAX cost</v:String>
+
+
+    <v:String x:Key="Filtration">Filtration</v:String>
+    <v:String x:Key="Language">Language</v:String>
+    <v:String x:Key="AddProduct">Add product</v:String>
+
+</ResourceDictionary>

@@ -1,0 +1,63 @@
+﻿<Window x:Name="MAINWINDOW"
+        x:Class="DIVIDEDSHOP.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DIVIDEDSHOP"
+        mc:Ignorable="d"
+        Title="Wear Shop" Height="584.4" Width="1110.8">
+    <Window.Resources>
+        <DataTemplate x:Key="listTemplate">
+            <StackPanel Margin="5" Orientation="Horizontal">
+                <Image Width="100" Height="100" Source="{Binding Path=ImageAdress}" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                <TextBlock FontSize="16"  Width="300" Text="{Binding Path=ShortName}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="100,0,0,0"/>
+                <TextBlock FontSize="16"  Width="250" Text="{Binding Path=Rate}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock FontSize="16"  Width="250" Text="{Binding Path=Color}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock FontSize="16"  Width="250" Text="{Binding Path=Size}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock FontSize="16"  Width="100" Text="{Binding Path=Cost}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </StackPanel>
+        </DataTemplate>
+    </Window.Resources>
+    <Grid Margin="0,0,0,0.4">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="401*"/>
+            <ColumnDefinition Width="393*"/>
+        </Grid.ColumnDefinitions>
+        <Rectangle Fill="#FF6A6A6E" Margin="0,24,0,0" Height="72" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+        <Rectangle Fill="#FF484848" Margin="0,22,0,0" Grid.ColumnSpan="2" Height="47" VerticalAlignment="Top"/>
+        <Label x:Name="DIVIDED_LABEL" Content="WEARSHOP" Margin="263,24,264,0" Foreground="White" Background="{x:Null}" FontFamily="Times New Roman" FontSize="36" Height="45" RenderTransformOrigin="0.5,0.5" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" FontWeight="Medium" TextOptions.TextFormattingMode="Display" Cursor="Hand" VerticalAlignment="Top" Padding="0" Grid.ColumnSpan="2"/>
+        <Label x:Name="Clothes" Content="Одежда" Margin="0,69,4.6,0" VerticalAlignment="Top" Foreground="Snow" FontFamily="Segoe UI Semilight" Height="26" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" MouseLeftButtonUp="Clothes_MouseLeftButtonUp" MouseUp="Clothes_MouseUp"/>
+        <Label x:Name="Shoes" Content="Обувь" Margin="0.4,69,5,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" Foreground="White" Height="26" Grid.Column="1" MouseUp="Shoes_MouseUp"/>
+        <Label x:Name="NoClothesLabel" Content="ТОВАРОВ НЕТ" Margin="0,95,0,0.4" Grid.ColumnSpan="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White" Background="#FF939393" Visibility="Hidden"/>
+        <ListBox x:Name="Clothes_ListBox" Margin="10,101,10,10" Background="#FF686868" Grid.ColumnSpan="2" ItemsSource="{Binding clothes}" SelectionChanged="Clothes_ListBox_SelectionChanged" Foreground="White" ItemTemplate="{StaticResource listTemplate}">
+
+        </ListBox>
+        <DockPanel Height="21" LastChildFill="False" Margin="0,1,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2">
+            <Menu Margin="0,1,0,0.2" Grid.ColumnSpan="2" Width="Auto">
+                <MenuItem Header="Добавить товар" Command="New">
+                </MenuItem>
+                <MenuItem Header="Фильтрация" />
+            </Menu>
+        </DockPanel>
+
+        <Popup x:Name="ContextPopup" PlacementTarget ="{Binding ElementName=Clothes_ListBox}" Placement="MousePoint"
+         PlacementRectangle="0,0,30,50"  AllowsTransparency="True" PopupAnimation="Fade"  StaysOpen="False" MouseLeave="ContextPopup_MouseLeave" Margin="636.4,195,-526,68" Grid.Column="1">
+            <Grid Height="Auto" Background="#FF777777" Width="404">
+                <Image x:Name="ImagePU" Height="136"  VerticalAlignment="Bottom" Margin="10,0,256,89.8" />
+                <TextBlock x:Name="FullNamePU" FontSize="16" TextAlignment="Left" Width="166"  HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,10,80,204.8" RenderTransformOrigin="0.07,0.852"/>
+                <TextBlock x:Name="RatePU" FontSize="16" TextAlignment="Right"   Width="103"  HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,115,80,100.8"/>
+                <TextBlock x:Name="DescriptionPU"  TextAlignment="Justify"  FontSize="10"  Width="314"  HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="10,152,80,9.8" Height="75" Background="#FFFFF3EC"/>
+                <TextBlock x:Name="ColorPU" FontSize="16" TextAlignment="Right"  Width="103"  HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,88,80,126.8"/>
+                <TextBlock x:Name="SizePU" FontSize="16" TextAlignment="Right"  Width="50"  HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,63,80,152.8" RenderTransformOrigin="-0.736,0.528"/>
+                <TextBlock x:Name="CostPU" FontSize="16" TextAlignment="Right"  Width="103"  HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,37,80,178.8" Foreground="Black"/>
+                <Label Content="Цена:" HorizontalAlignment="Left" Margin="153,37,0,0" VerticalAlignment="Top" Height="21" RenderTransformOrigin="0.24,0.527" Width="56" Padding="5,0" VerticalContentAlignment="Center"/>
+                <Label Content="Размер:" HorizontalAlignment="Left" Margin="153,63,0,0" VerticalAlignment="Top" Height="21" RenderTransformOrigin="0.24,0.527" Width="56" Padding="5,0" VerticalContentAlignment="Center"/>
+                <Label Content="Цвет:" HorizontalAlignment="Left" Margin="153,89,0,0" VerticalAlignment="Top" Height="21" RenderTransformOrigin="0.24,0.527" Width="56" Padding="5,0" VerticalContentAlignment="Center"/>
+                <Label Content="Рейтинг:" HorizontalAlignment="Left" Margin="153,115,0,0" VerticalAlignment="Top" Height="22" RenderTransformOrigin="0.24,0.527" Width="63" Padding="5,0" VerticalContentAlignment="Center"/>
+                <Button x:Name="DeleteItemBTTN" Content="Удалить" HorizontalAlignment="Left" Margin="329,162,0,0" VerticalAlignment="Top" Width="65" Height="65" Click="Button_Click"/>
+                <Button x:Name="EditItemBTTN" Content="Редактировать" HorizontalAlignment="Left" Margin="329,89,0,0" VerticalAlignment="Top" Width="65" Height="65" Click="EditItemBTTN_Click" FontSize="8" />
+            </Grid>
+        </Popup>
+    </Grid>
+</Window>
